@@ -2,26 +2,33 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@layer base {
+  html {
+    font-family: "Proxima Nova", system-ui, sans-serif;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+div {
+  transition: all ease 0.3s;
+}
+
+.landing-page-bio {
+  display: block;
+  min-width: none;
+  animation: animate-bio 3s ease-in-out 1s infinite alternate-reverse;
+  overflow: hidden;
+  max-width: fit-content;
+}
+
+@keyframes animate-bio {
+  0% {
+    width: 0%;
+  }
+
+  50% {
+    width: 100%;
+  }
+  100% {
+    width: 0%;
+  }
 }
