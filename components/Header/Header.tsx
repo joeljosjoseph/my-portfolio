@@ -10,7 +10,7 @@ const NavLinkClass =
 const Header = (props: Props) => {
   // state to show/hide sidebar for smaller screens
   const [showSidebar, setShowSidebar] = useState(false);
-  const [bgColor, setBgColor] = useState("lg:bg-transparent");
+  const [bgColor, setBgColor] = useState("bg-transparent");
 
   const sidebarRef = useRef<HTMLDivElement | null>(null);
 
@@ -33,9 +33,9 @@ const Header = (props: Props) => {
     document.addEventListener("mouseup", handleClickOutside);
     document.addEventListener("scroll", (event: Event) => {
       if (window.scrollY > 150) {
-        setBgColor("lg:bg-black/80");
+        setBgColor("bg-black/80");
       } else {
-        setBgColor("lg:bg-transparent");
+        setBgColor("bg-transparent");
       }
     });
 
@@ -47,7 +47,7 @@ const Header = (props: Props) => {
 
   return (
     <div
-      className={`fixed bg-transparent ${bgColor} z-10 py-4 md:py-8 lg:py-0 px-8 lg:px-16 flex justify-between items-center w-full duration-1000 group`}
+      className={`fixed ${bgColor} z-10 py-4 md:py-8 lg:py-0 px-8 lg:px-16 flex justify-between items-center w-full duration-1000 group`}
     >
       <h1 className="text-4xl sm:text-5xl text-white font-extrabold">JJJ</h1>
       {/* mobile screen sidebar */}
