@@ -4,16 +4,21 @@ import { CiMenuBurger } from "react-icons/ci";
 
 type Props = {};
 
-const NavLinkClass =
-  "cursor-pointer before:transition-transform ease-linear duration-300 group before:absolute before:bottom-[-5px] before:content-[' '] before:w-full before:h-[2px] before:rounded-xl before:bg-black lg:before:bg-white before:scale-x-0 hover:before:scale-x-100 before:origin-right hover:before:origin-left";
-
 const Header = (props: Props) => {
   // state to show/hide sidebar for smaller screens
   const [showSidebar, setShowSidebar] = useState(false);
   const [bgColor, setBgColor] = useState("bg-transparent");
+  const [activeSection, setActiveSection] = useState("home");
 
   const sidebarRef = useRef<HTMLDivElement | null>(null);
 
+  const NavLinkClass = (id: string) => {
+    return `cursor-pointer before:transition-transform ease-linear duration-300 group before:absolute before:bottom-[-5px] before:content-[' '] before:w-full before:h-[2px] before:rounded-xl before:bg-black lg:before:bg-white ${
+      activeSection === id
+        ? "before:origin-left before:scale-x-100"
+        : "before:scale-x-0"
+    } hover:before:scale-x-100 before:origin-right hover:before:origin-left`;
+  };
   const handleClickOutside = (event: MouseEvent) => {
     // Check if the sidebar is open and the clicked element is outside the sidebar
     if (
@@ -26,6 +31,11 @@ const Header = (props: Props) => {
 
   const handleNavClick = (link: string) => {
     if (showSidebar) setShowSidebar(false);
+    // Scroll to the section with the corresponding ID
+    const element = document.getElementById(link);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   useEffect(() => {
@@ -45,9 +55,38 @@ const Header = (props: Props) => {
     };
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      // Calculate which section is in view based on scroll position
+      const sections = document.querySelectorAll("section");
+      let found = false;
+
+      sections.forEach((section) => {
+        const rect = section.getBoundingClientRect();
+
+        if (
+          rect.top <= window.innerHeight / 2 &&
+          rect.bottom >= window.innerHeight / 2 &&
+          !found
+        ) {
+          setActiveSection(section.id);
+          found = true;
+        }
+      });
+    };
+
+    // Attach the event listener
+    window.addEventListener("scroll", handleScroll);
+
+    // Cleanup the event listener on component unmount
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <div
-      className={`fixed ${bgColor} z-10 py-4 md:py-8 lg:py-0 px-8 lg:px-16 flex justify-between items-center w-full duration-1000 group`}
+      className={`fixed ${bgColor} z-[1000] py-4 md:py-8 lg:py-0 px-8 lg:px-16 flex justify-between items-center w-full duration-1000 group backdrop-blur-sm `}
     >
       <h1 className="text-4xl sm:text-5xl text-white font-extrabold">JJJ</h1>
       {/* mobile screen sidebar */}
@@ -65,20 +104,26 @@ const Header = (props: Props) => {
       >
         <div className="flex flex-col gap-6 py-8 px-5 font-medium">
           <div className="relative w-fit">
-            <p className={NavLinkClass} onClick={() => handleNavClick("home")}>
+            <p
+              className={NavLinkClass("home")}
+              onClick={() => handleNavClick("home")}
+            >
               Home
             </p>
           </div>
           <div className="relative w-fit">
             {" "}
-            <p className={NavLinkClass} onClick={() => handleNavClick("about")}>
+            <p
+              className={NavLinkClass("about")}
+              onClick={() => handleNavClick("about")}
+            >
               About Me
             </p>
           </div>
           <div className="relative w-fit">
             {" "}
             <p
-              className={NavLinkClass}
+              className={NavLinkClass("profile")}
               onClick={() => handleNavClick("profile")}
             >
               Profile
@@ -87,7 +132,7 @@ const Header = (props: Props) => {
           <div className="relative w-fit">
             {" "}
             <p
-              className={NavLinkClass}
+              className={NavLinkClass("services")}
               onClick={() => handleNavClick("services")}
             >
               Services
@@ -96,7 +141,7 @@ const Header = (props: Props) => {
           <div className="relative w-fit">
             {" "}
             <p
-              className={NavLinkClass}
+              className={NavLinkClass("experience")}
               onClick={() => handleNavClick("experience")}
             >
               Experience
@@ -105,7 +150,7 @@ const Header = (props: Props) => {
           <div className="relative w-fit">
             {" "}
             <p
-              className={NavLinkClass}
+              className={NavLinkClass("contact")}
               onClick={() => handleNavClick("contact")}
             >
               Contact
@@ -115,26 +160,35 @@ const Header = (props: Props) => {
       </div>
       <div className="hidden lg:flex gap-12 py-8 px-5 font-medium text-white group-hover:xl:gap-20 group-focus:xl:gap-20">
         <div className="relative w-fit">
-          <p className={NavLinkClass} onClick={() => handleNavClick("home")}>
+          <p
+            className={NavLinkClass("home")}
+            onClick={() => handleNavClick("home")}
+          >
             Home
           </p>
         </div>
         <div className="relative w-fit">
           {" "}
-          <p className={NavLinkClass} onClick={() => handleNavClick("about")}>
+          <p
+            className={NavLinkClass("about")}
+            onClick={() => handleNavClick("about")}
+          >
             About Me
           </p>
         </div>
         <div className="relative w-fit">
           {" "}
-          <p className={NavLinkClass} onClick={() => handleNavClick("profile")}>
+          <p
+            className={NavLinkClass("profile")}
+            onClick={() => handleNavClick("profile")}
+          >
             Profile
           </p>
         </div>
         <div className="relative w-fit">
           {" "}
           <p
-            className={NavLinkClass}
+            className={NavLinkClass("services")}
             onClick={() => handleNavClick("services")}
           >
             Services
@@ -143,7 +197,7 @@ const Header = (props: Props) => {
         <div className="relative w-fit">
           {" "}
           <p
-            className={NavLinkClass}
+            className={NavLinkClass("experience")}
             onClick={() => handleNavClick("experience")}
           >
             Experience
@@ -151,7 +205,10 @@ const Header = (props: Props) => {
         </div>
         <div className="relative w-fit">
           {" "}
-          <p className={NavLinkClass} onClick={() => handleNavClick("contact")}>
+          <p
+            className={NavLinkClass("contact")}
+            onClick={() => handleNavClick("contact")}
+          >
             Contact
           </p>
         </div>
