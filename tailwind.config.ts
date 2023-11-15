@@ -8,8 +8,8 @@ const config: Config = {
   ],
   theme: {
     fontFamily: {
-      sans: ['"PT Sans"', 'sans-serif']
-    }
+      mono: ['Roboto Mono', 'monospace'],
+    },
   },
   plugins: [],
 }
