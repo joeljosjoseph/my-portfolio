@@ -34,7 +34,11 @@ const Header = (props: Props) => {
     // Scroll to the section with the corresponding ID
     const element = document.getElementById(link);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      element.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+        inline: "nearest",
+      });
     }
   };
 
@@ -123,10 +127,10 @@ const Header = (props: Props) => {
           <div className="relative w-fit">
             {" "}
             <p
-              className={NavLinkClass("profile")}
-              onClick={() => handleNavClick("profile")}
+              className={NavLinkClass("skills")}
+              onClick={() => handleNavClick("skills")}
             >
-              Profile
+              Skills
             </p>
           </div>
           <div className="relative w-fit">
@@ -158,7 +162,7 @@ const Header = (props: Props) => {
           </div>
         </div>
       </div>
-      <div className="hidden lg:flex gap-12 py-8 px-5 font-medium text-white group-hover:xl:gap-20 group-focus:xl:gap-20">
+      <div className="hidden lg:flex gap-12 py-8 px-5 font-medium text-white group-hover:xl:gap-16 group-focus:xl:gap-16">
         <div className="relative w-fit">
           <p
             className={NavLinkClass("home")}
@@ -179,10 +183,10 @@ const Header = (props: Props) => {
         <div className="relative w-fit">
           {" "}
           <p
-            className={NavLinkClass("profile")}
-            onClick={() => handleNavClick("profile")}
+            className={NavLinkClass("skills")}
+            onClick={() => handleNavClick("skills")}
           >
-            Profile
+            Skills
           </p>
         </div>
         <div className="relative w-fit">
