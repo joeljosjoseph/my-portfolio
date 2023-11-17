@@ -26,12 +26,12 @@ const About = (props: Props) => {
       id="about"
       className="min-h-[100vh] py-20 px-4 flex justify-center items-center relative bg-white mt-[-2px]"
     >
-      <div className="max-w-[1000px] mx-auto  my-auto flex gap-10">
+      <div className="max-w-[1000px] mx-auto my-auto flex gap-10">
         <div className="flex flex-1 flex-wrap gap-10">
           <AnimateOnScroll>
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-6 sm:gap-10">
               <p className="text-4xl">About me.</p>
-              <p className="text-lg text-black/60 ">
+              <p className="text-sm sm:text-lg text-black/60 ">
                 I am a front-end developer, where my expertise lies in
                 technologies such as TypeScript, HTML, CSS, and Next.js.
                 <br />
