@@ -5,6 +5,8 @@ import Head from "next/head";
 import HomeSection from "@/components/Sections/Home";
 import About from "@/components/Sections/About";
 import Skills from "@/components/Sections/Skills";
+import Services from "@/components/Sections/Services";
+import Projects from "@/components/Sections/Proejcts";
 
 export default function Home() {
   return (
@@ -22,6 +24,8 @@ export default function Home() {
         <HomeSection />
         <About />
         <Skills />
+        <Services />
+        <Projects />
       </div>
     </main>
   );
