@@ -16,8 +16,8 @@ const Header = (props: Props) => {
     return `cursor-pointer before:transition-transform ease-linear duration-300 group before:absolute before:bottom-[-5px] before:content-[' '] before:w-full before:h-[2px] before:rounded-xl before:bg-black lg:before:bg-white ${
       activeSection === id
         ? "before:origin-left before:scale-x-100"
-        : "before:scale-x-0"
-    } hover:before:scale-x-100 before:origin-right hover:before:origin-left`;
+        : "before:scale-x-0 before:origin-right "
+    } hover:before:scale-x-100 hover:before:origin-left`;
   };
   const handleClickOutside = (event: MouseEvent) => {
     // Check if the sidebar is open and the clicked element is outside the sidebar
@@ -145,10 +145,10 @@ const Header = (props: Props) => {
           <div className="relative w-fit">
             {" "}
             <p
-              className={NavLinkClass("experience")}
-              onClick={() => handleNavClick("experience")}
+              className={NavLinkClass("projects")}
+              onClick={() => handleNavClick("projects")}
             >
-              Experience
+              Projects
             </p>
           </div>
           <div className="relative w-fit">
@@ -201,10 +201,10 @@ const Header = (props: Props) => {
         <div className="relative w-fit">
           {" "}
           <p
-            className={NavLinkClass("experience")}
-            onClick={() => handleNavClick("experience")}
+            className={NavLinkClass("projects")}
+            onClick={() => handleNavClick("projects")}
           >
-            Experience
+            Projects
           </p>
         </div>
         <div className="relative w-fit">
