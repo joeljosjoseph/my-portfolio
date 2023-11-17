@@ -40,7 +40,8 @@ const Skills = (props: Props) => {
           ></path>
         </svg>
       </div>
-      <div className="min-h-[100vh] w-full flex justify-center items-center">
+      <div className="min-h-[100vh] w-full flex flex-col justify-center gap-6 sm:gap-10">
+        <p className="text-4xl max-w-[1000px] mx-auto w-full">Skills.</p>
         <div className="max-w-[1000px] w-full h-full grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-5 sm:gap-8 lg:gap-12 xl:gap-24 mx-auto ">
           <AnimateOnScroll delay="delay-[100ms]">
             <SkillCard
