@@ -32,7 +32,7 @@ const SkillCard = ({ image, altText, description }: Props) => {
                 : "translate-y-[200px] opacity-0"
             } absolute h-full w-full left-0 top-0 bg-gradient-to-b from-white/100 to-transparent/1 backdrop-blur-sm p-2 sm:p-5 flex flex-col justify-center gap-2`}
           >
-            <p className="text-[3.2vw] sm:text-sm sm:!leading-7 text-black/70">
+            <p className="text-[3.2vw] sm:text-sm sm:!leading-7 text-black/70 cursor-default">
               {description}
               <br />
             </p>
