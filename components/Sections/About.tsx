@@ -1,7 +1,7 @@
 import React from "react";
 import AnimateOnScroll from "../AnimateOnScroll/AnimateOnScroll";
 import Image from "next/image";
-import Profile from "@/public/Profile.jpg";
+import Profile from "@/public/images/Profile.jpg";
 
 type Props = {};
 
