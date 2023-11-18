@@ -461,14 +461,20 @@ const Projects = (props: Props) => {
         () => {
           tabInterval = setInterval(() => {
             const tabIndex = TABS.lastIndexOf(activeTab);
-            setActiveTab(TABS[(tabIndex + 1) % 3]);
+            const nextTabIndex = (tabIndex + 1) % 4; // Assuming you have 3 tabs
+
+            // Start from the 1st index (skipping 0th index)
+            setActiveTab(TABS[nextTabIndex === 0 ? 1 : nextTabIndex]);
           }, 30000);
         } /* Specify your timeout duration here */
       );
     } else {
       tabInterval = setInterval(() => {
         const tabIndex = TABS.lastIndexOf(activeTab);
-        setActiveTab(TABS[(tabIndex + 1) % 3]);
+        const nextTabIndex = (tabIndex + 1) % 4; // Assuming you have 3 tabs
+
+        // Start from the 1st index (skipping 0th index)
+        setActiveTab(TABS[nextTabIndex === 0 ? 1 : nextTabIndex]);
       }, 3000);
     }
 
