@@ -30,7 +30,7 @@ const Services = (props: Props) => {
           <ul className="">
             <AnimateOnScroll delay="delay-[100ms]">
               <li className="flex">
-                <span className="inline-block w-3 h-3 bg-black rounded-full m-2 sm:my-6"></span>
+                <span className="inline-block w-3 h-3 bg-black rounded-full mx-2 my-3 sm:my-6"></span>
                 <ServiceCard
                   title="Front-end Development"
                   description="With over a year of experience, I excel in front-end development, leveraging React, TypeScript, and Tailwind CSS. Proficient in CSS and SCSS, I create visually stunning, responsive interfaces for optimal user experiences."
@@ -39,7 +39,7 @@ const Services = (props: Props) => {
             </AnimateOnScroll>
             <AnimateOnScroll delay="delay-[150ms]">
               <li className="flex">
-                <span className="inline-block w-3 h-3 bg-black rounded-full m-2 sm:my-6"></span>
+                <span className="inline-block w-3 h-3 bg-black rounded-full mx-2 my-3 sm:my-6"></span>
                 <ServiceCard
                   title="Performance and Optimization"
                   description="With a focus on performance optimization, I elevate web applications using strategic techniques. Expertise in minimizing load times, optimizing code, and employing best practices for seamless and efficient user experiences."
@@ -48,7 +48,7 @@ const Services = (props: Props) => {
             </AnimateOnScroll>
             <AnimateOnScroll delay="delay-[200ms]">
               <li className="flex">
-                <span className="inline-block w-3 h-3 bg-black rounded-full m-2 sm:my-6"></span>
+                <span className="inline-block w-3 h-3 bg-black rounded-full mx-2 my-3 sm:my-6"></span>
                 <ServiceCard
                   title=" Collaboration and Communication"
                   description="As a collaborative front-end developer, I thrive on effective communication and teamwork. With strong interpersonal skills, I contribute positively to projects, fostering a cohesive environment for successful outcomes."
@@ -57,7 +57,7 @@ const Services = (props: Props) => {
             </AnimateOnScroll>
             <AnimateOnScroll delay="delay-[250ms]">
               <li className="flex">
-                <span className="inline-block w-3 h-3 bg-black rounded-full m-2 sm:my-6"></span>
+                <span className="inline-block w-3 h-3 bg-black rounded-full mx-2 my-3 sm:my-6"></span>
                 <ServiceCard
                   title="Code quality and Testing"
                   description="Setting a standard for best-in-class code quality, I leverage the latest technologies and tools to deliver top-notch front-end solutions. Meticulous in adopting industry best practices, my work reflects a commitment to excellence, innovation, and comprehensive testing methodologies for robust and reliable applications."
