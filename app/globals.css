@@ -35,7 +35,7 @@ div {
 }
 
 .home-wrapper {
-  background-image: url("../public/LaptopBackground.jpg");
+  background-image: url("../public/images/LaptopBackground.jpg");
   background-size: cover;
   background-position: 0px -80px;
   height: 100vh;
@@ -131,4 +131,19 @@ div {
 
 .custom-shape-divider-top-1700232691 .shape-fill {
   fill: #ffffff;
+}
+
+.animate-div {
+  animation: append-animate 0.3s linear;
+}
+
+@keyframes append-animate {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
