@@ -21,6 +21,15 @@ import HardhatIcon from "@/public/icons/HardhatIcon.svg";
 import OpenLink from "@/public/icons/OpenLink.svg";
 import Whatsapp from "@/public/images/Whatsapp.jpg";
 import ProjectCard from "../Cards/ProjectCard";
+import Link from "next/link";
+import {
+  CATERING_PROJECT,
+  LOTTERY_PROJECT,
+  NETFLIX_PROJECT,
+  SOCIAL_MEDIA_PROJECT,
+  TIC_TAC_PROJECT,
+  WHATSAPP_PROJECT,
+} from "@/public/constants/constants";
 
 type Props = {};
 
@@ -46,15 +55,17 @@ const Projects = (props: Props) => {
         <div className="p-6 sm:p-12 flex flex-col gap-2 sm:gap-4">
           <div className="flex items-center gap-2 text-[12px] sm:text-xl font-bold border-b-[1px] border-black w-fit ">
             <p>Tic Tac Toe</p>
-            <Image
-              onClick={() =>
-                (window.location.href =
-                  "https://github.com/joeljosjoseph/tictactoe")
-              }
-              className="h-[10px] sm:h-[15px] w-[10px] sm:w-[15px] cursor-pointer"
-              src={OpenLink}
-              alt="nextjs-icon"
-            />
+            <Link
+              href={TIC_TAC_PROJECT}
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <Image
+                className="h-[10px] sm:h-[15px] w-[10px] sm:w-[15px] cursor-pointer"
+                src={OpenLink}
+                alt="nextjs-icon"
+              />
+            </Link>
           </div>
           <p className="text-[10px] sm:text-lg max-h-[25vh] sm:max-h-none overflow-y-auto">
             The Tic Tac Toe game is a classic two-player game where players take
@@ -102,15 +113,17 @@ const Projects = (props: Props) => {
         <div className="p-6 sm:p-12 flex flex-col gap-2 sm:gap-4">
           <div className="flex items-center gap-2 text-[12px] sm:text-xl font-bold border-b-[1px] border-black w-fit ">
             <p>Catering Management System</p>
-            <Image
-              onClick={() =>
-                (window.location.href =
-                  "https://github.com/joeljosjoseph/Catering-Management-System")
-              }
-              className="h-[10px] sm:h-[15px] w-[10px] sm:w-[15px] cursor-pointer"
-              src={OpenLink}
-              alt="nextjs-icon"
-            />
+            <Link
+              href={CATERING_PROJECT}
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <Image
+                className="h-[10px] sm:h-[15px] w-[10px] sm:w-[15px] cursor-pointer"
+                src={OpenLink}
+                alt="nextjs-icon"
+              />
+            </Link>
           </div>
           <p className="text-[10px] sm:text-lg max-h-[25vh] sm:max-h-none overflow-y-auto">
             The Catering Management System is a comprehensive platform developed
@@ -174,16 +187,18 @@ const Projects = (props: Props) => {
       <div className="absolute top-0 left-0 w-full h-full bg-white/80">
         <div className="p-6 sm:p-12 flex flex-col gap-2 sm:gap-4">
           <div className="flex items-center gap-2 text-[12px] sm:text-xl font-bold border-b-[1px] border-black w-fit ">
-            <p>Social Media Platform</p>
-            <Image
-              onClick={() =>
-                (window.location.href =
-                  "https://github.com/joeljosjoseph/Social-Media-Website")
-              }
-              className="h-[10px] sm:h-[15px] w-[10px] sm:w-[15px] cursor-pointer"
-              src={OpenLink}
-              alt="nextjs-icon"
-            />
+            <p>Social Media Platform</p>{" "}
+            <Link
+              href={SOCIAL_MEDIA_PROJECT}
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <Image
+                className="h-[10px] sm:h-[15px] w-[10px] sm:w-[15px] cursor-pointer"
+                src={OpenLink}
+                alt="nextjs-icon"
+              />
+            </Link>
           </div>
           <p className="text-[10px] sm:text-lg max-h-[25vh] sm:max-h-none overflow-y-auto">
             The Social Media Website is a dynamic platform built with React,
@@ -249,15 +264,17 @@ const Projects = (props: Props) => {
         <div className="p-6 sm:p-12 flex flex-col gap-2 sm:gap-4">
           <div className="flex items-center gap-2 text-[12px] sm:text-xl font-bold border-b-[1px] border-black w-fit ">
             <p>Netflix Clone</p>
-            <Image
-              onClick={() =>
-                (window.location.href =
-                  "https://github.com/joeljosjoseph/Netflix-clone")
-              }
-              className="h-[10px] sm:h-[15px] w-[10px] sm:w-[15px] cursor-pointer"
-              src={OpenLink}
-              alt="nextjs-icon"
-            />
+            <Link
+              href={NETFLIX_PROJECT}
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <Image
+                className="h-[10px] sm:h-[15px] w-[10px] sm:w-[15px] cursor-pointer"
+                src={OpenLink}
+                alt="nextjs-icon"
+              />
+            </Link>
           </div>
           <p className="text-[10px] sm:text-lg max-h-[25vh] sm:max-h-none overflow-y-auto">
             The Netflix Clone is powered by React and CSS, replicating the
@@ -315,16 +332,18 @@ const Projects = (props: Props) => {
       <div className="absolute top-0 left-0 w-full h-full bg-white/80">
         <div className="p-6 sm:p-12 flex flex-col gap-2 sm:gap-4">
           <div className="flex items-center gap-2 text-[12px] sm:text-xl font-bold border-b-[1px] border-black w-fit ">
-            <p> Whatsapp Clone</p>
-            <Image
-              onClick={() =>
-                (window.location.href =
-                  "https://github.com/joeljosjoseph/whatsapp-clone")
-              }
-              className="h-[10px] sm:h-[15px] w-[10px] sm:w-[15px] cursor-pointer"
-              src={OpenLink}
-              alt="nextjs-icon"
-            />
+            <p> Whatsapp Clone</p>{" "}
+            <Link
+              href={WHATSAPP_PROJECT}
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <Image
+                className="h-[10px] sm:h-[15px] w-[10px] sm:w-[15px] cursor-pointer"
+                src={OpenLink}
+                alt="nextjs-icon"
+              />
+            </Link>
           </div>
           <p className="text-[10px] sm:text-lg max-h-[25vh] sm:max-h-none overflow-y-auto">
             The WhatsApp Clone front-end, developed using React and CSS,
@@ -379,16 +398,18 @@ const Projects = (props: Props) => {
       <div className="absolute top-0 left-0 w-full h-full bg-white/80">
         <div className="p-6 sm:p-12 flex flex-col gap-2 sm:gap-4">
           <div className="flex items-center gap-2 text-[12px] sm:text-xl font-bold border-b-[1px] border-black w-fit ">
-            <p>Decentralised Lottery</p>
-            <Image
-              onClick={() =>
-                (window.location.href =
-                  "https://github.com/joeljosjoseph/hardhat-lottery")
-              }
-              className="h-[10px] sm:h-[15px] w-[10px] sm:w-[15px] cursor-pointer"
-              src={OpenLink}
-              alt="nextjs-icon"
-            />
+            <p>Decentralised Lottery</p>{" "}
+            <Link
+              href={LOTTERY_PROJECT}
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <Image
+                className="h-[10px] sm:h-[15px] w-[10px] sm:w-[15px] cursor-pointer"
+                src={OpenLink}
+                alt="nextjs-icon"
+              />
+            </Link>
           </div>
           <p className="text-[10px] sm:text-lg max-h-[25vh] sm:max-h-none overflow-y-auto">
             The Web3 Lottery Project seamlessly integrates Hardhat for smart
@@ -437,22 +458,6 @@ const Projects = (props: Props) => {
     </div>
   );
 
-  const checkVisible = (project: string) => {
-    if (activeTab === "All") return true;
-    return activeTab === "Front-End"
-      ? project === "netflix" || project === "whatsapp" || project === "tictac"
-        ? true
-        : false
-      : activeTab === "Web3"
-      ? project === "lottery"
-        ? true
-        : false
-      : activeTab === "Full Stack"
-      ? project === "catering" || project === "socialmedia"
-        ? true
-        : false
-      : false;
-  };
   useEffect(() => {
     let tabInterval: NodeJS.Timeout;
 
@@ -510,32 +515,38 @@ const Projects = (props: Props) => {
           {activeTab == TABS[0] && (
             <>
               <ProjectCard
+                setClicked={() => setClicked(true)}
                 image={Catering}
                 modalBody={CateringContent()}
                 classname="animate-div"
               />
               <ProjectCard
+                setClicked={() => setClicked(true)}
                 image={SocialMedia}
                 classname="animate-div"
                 modalBody={SocialMediaContent()}
               />
               <ProjectCard
                 image={Netflix}
+                setClicked={() => setClicked(true)}
                 modalBody={NetflixContent()}
                 classname="animate-div"
               />
               <ProjectCard
                 image={Whatsapp}
+                setClicked={() => setClicked(true)}
                 modalBody={WhatsappContent()}
                 classname="animate-div"
               />
               <ProjectCard
                 image={TicTac}
+                setClicked={() => setClicked(true)}
                 modalBody={TicTacContent()}
                 classname="animate-div"
               />
               <ProjectCard
                 image={Lottery}
+                setClicked={() => setClicked(true)}
                 modalBody={LotteryContent()}
                 classname="animate-div"
               />
@@ -545,16 +556,19 @@ const Projects = (props: Props) => {
             <>
               <ProjectCard
                 image={Netflix}
+                setClicked={() => setClicked(true)}
                 modalBody={NetflixContent()}
                 classname="animate-div"
               />
               <ProjectCard
                 image={Whatsapp}
+                setClicked={() => setClicked(true)}
                 modalBody={WhatsappContent()}
                 classname="animate-div"
               />
               <ProjectCard
                 image={TicTac}
+                setClicked={() => setClicked(true)}
                 modalBody={TicTacContent()}
                 classname="animate-div"
               />
@@ -564,6 +578,7 @@ const Projects = (props: Props) => {
             <>
               <ProjectCard
                 image={Lottery}
+                setClicked={() => setClicked(true)}
                 modalBody={LotteryContent()}
                 classname="animate-div"
               />
@@ -573,11 +588,13 @@ const Projects = (props: Props) => {
             <>
               <ProjectCard
                 image={Catering}
+                setClicked={() => setClicked(true)}
                 modalBody={CateringContent()}
                 classname="animate-div"
               />
               <ProjectCard
                 image={SocialMedia}
+                setClicked={() => setClicked(true)}
                 modalBody={SocialMediaContent()}
                 classname="animate-div"
               />
