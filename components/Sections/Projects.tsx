@@ -49,10 +49,10 @@ const Projects = (props: Props) => {
       <Image
         src={TicTac}
         alt="catering-img"
-        className="rounded-lg min-w-[100px] w-full h-full max-w-[600px] object-cover shadow-lg"
+        className="rounded-lg min-w-[100px] w-[90vw] h-full max-w-[600px] object-cover shadow-lg"
       />
       <div className="absolute top-0 left-0 w-full h-full bg-white/80 ">
-        <div className="p-6 sm:p-12 flex flex-col gap-2 sm:gap-4">
+        <div className="p-6 sm:p-12 flex flex-col gap-2 sm:gap-4 w-full h-full">
           <div className="flex items-center gap-2 text-[12px] sm:text-xl font-bold border-b-[1px] border-black w-fit ">
             <p>Tic Tac Toe</p>
             <Link
@@ -67,35 +67,37 @@ const Projects = (props: Props) => {
               />
             </Link>
           </div>
-          <p className="text-[10px] sm:text-lg max-h-[25vh] sm:max-h-none overflow-y-auto">
-            The Tic Tac Toe game is a classic two-player game where players take
-            turns marking spaces in a 3x3 grid. The objective is to be the first
-            to complete a row, column, or diagonal with their chosen marker
-            (either &quot;X&quot; or &quot;O&quot;). The game provides a clean
-            and intuitive user interface, with alternating turns, clear win/lose
-            conditions, and an option to restart the game.
-          </p>
-
-          <div className="flex sm:flex-col gap-2 sm:gap-4">
-            <p className="text-[11px] sm:text-lg font-bold">
-              Technologies Used :
+          <div className="flex flex-col gap-2 overflow-y-auto">
+            <p className="text-[10px] sm:text-lg flex-1 sm:max-h-none ">
+              The Tic Tac Toe game is a classic two-player game where players
+              take turns marking spaces in a 3x3 grid. The objective is to be
+              the first to complete a row, column, or diagonal with their chosen
+              marker (either &quot;X&quot; or &quot;O&quot;). The game provides
+              a clean and intuitive user interface, with alternating turns,
+              clear win/lose conditions, and an option to restart the game.
             </p>
-            <div className="flex gap-2 sm:gap-4">
-              <Image
-                className="h-[20px] sm:h-[30px] w-[20px] sm:w-[30px]"
-                src={HtmlIcon}
-                alt="html-icon"
-              />
-              <Image
-                className="h-[20px] sm:h-[30px] w-[20px] sm:w-[30px]"
-                src={JavascriptIcon}
-                alt="js-icon"
-              />
-              <Image
-                className="h-[20px] sm:h-[30px] w-[20px] sm:w-[30px]"
-                src={CssIcon}
-                alt="css-icon"
-              />
+
+            <div className="flex sm:flex-col flex-wrap gap-2 sm:gap-4">
+              <p className="text-[11px] sm:text-lg font-bold">
+                Technologies Used :
+              </p>
+              <div className="flex gap-2 sm:gap-4">
+                <Image
+                  className="h-[20px] sm:h-[30px] w-[20px] sm:w-[30px]"
+                  src={HtmlIcon}
+                  alt="html-icon"
+                />
+                <Image
+                  className="h-[20px] sm:h-[30px] w-[20px] sm:w-[30px]"
+                  src={JavascriptIcon}
+                  alt="js-icon"
+                />
+                <Image
+                  className="h-[20px] sm:h-[30px] w-[20px] sm:w-[30px]"
+                  src={CssIcon}
+                  alt="css-icon"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -107,10 +109,10 @@ const Projects = (props: Props) => {
       <Image
         src={Catering}
         alt="catering-img"
-        className="rounded-lg min-w-[100px] w-full max-w-[700px] aspect-square object-cover shadow-lg"
+        className="rounded-lg min-w-[100px] w-[90vw] max-w-[700px] aspect-square object-cover shadow-lg"
       />
       <div className="absolute top-0 left-0 w-full h-full bg-white/80">
-        <div className="p-6 sm:p-12 flex flex-col gap-2 sm:gap-4">
+        <div className="p-6 sm:p-12 flex flex-col gap-2 sm:gap-4  w-full h-full">
           <div className="flex items-center gap-2 text-[12px] sm:text-xl font-bold border-b-[1px] border-black w-fit ">
             <p>Catering Management System</p>
             <Link
@@ -125,52 +127,55 @@ const Projects = (props: Props) => {
               />
             </Link>
           </div>
-          <p className="text-[10px] sm:text-lg max-h-[25vh] sm:max-h-none overflow-y-auto">
-            The Catering Management System is a comprehensive platform developed
-            with PHP for both front-end and back-end, with MySQL serving as the
-            backend database. This system facilitates seamless catering
-            services, enabling users to purchase and order food items in bulk
-            from an extensive range of options. The front-end, powered by PHP,
-            offers an intuitive user interface where customers can explore the
-            diverse food selections, place orders, and make bulk purchases. The
-            back-end, also implemented in PHP, manages the dynamic aspects of
-            the platform, handling order processing, inventory management, and
-            user authentication. MySQL efficiently stores and retrieves data,
-            ensuring the reliability and scalability of the system. This
-            Catering Management System amalgamates robust front-end design with
-            a feature-rich back-end, providing a user-friendly and efficient
-            solution for catering services.
-          </p>
-          <div className="flex sm:flex-col gap-2 sm:gap-4">
-            <p className="text-[11px] sm:text-lg font-bold">
-              Technologies Used :
+          <div className="flex flex-col gap-2 overflow-y-auto">
+            <p className="text-[10px] sm:text-lg flex-1 sm:max-h-none ">
+              The Catering Management System is a comprehensive platform
+              developed with PHP for both front-end and back-end, with MySQL
+              serving as the backend database. This system facilitates seamless
+              catering services, enabling users to purchase and order food items
+              in bulk from an extensive range of options. The front-end, powered
+              by PHP, offers an intuitive user interface where customers can
+              explore the diverse food selections, place orders, and make bulk
+              purchases. The back-end, also implemented in PHP, manages the
+              dynamic aspects of the platform, handling order processing,
+              inventory management, and user authentication. MySQL efficiently
+              stores and retrieves data, ensuring the reliability and
+              scalability of the system. This Catering Management System
+              amalgamates robust front-end design with a feature-rich back-end,
+              providing a user-friendly and efficient solution for catering
+              services.
             </p>
-            <div className="flex gap-2 sm:gap-4">
-              <Image
-                className="h-[20px] sm:h-[30px] w-[20px] sm:w-[30px]"
-                src={PhpIcon}
-                alt="php-icon"
-              />
-              <Image
-                className="h-[20px] sm:h-[30px] w-[20px] sm:w-[30px]"
-                src={JavascriptIcon}
-                alt="js-icon"
-              />
-              <Image
-                className="h-[20px] sm:h-[30px] w-[20px] sm:w-[30px]"
-                src={HtmlIcon}
-                alt="html-icon"
-              />
-              <Image
-                className="h-[20px] sm:h-[30px] w-[20px] sm:w-[30px]"
-                src={CssIcon}
-                alt="css-icon"
-              />
-              <Image
-                className="h-[20px] sm:h-[30px] w-[20px] sm:w-[30px]"
-                src={SqlIcon}
-                alt="sql-icon"
-              />
+            <div className="flex sm:flex-col flex-wrap gap-2 sm:gap-4">
+              <p className="text-[11px] sm:text-lg font-bold">
+                Technologies Used :
+              </p>
+              <div className="flex gap-2 sm:gap-4">
+                <Image
+                  className="h-[20px] sm:h-[30px] w-[20px] sm:w-[30px]"
+                  src={PhpIcon}
+                  alt="php-icon"
+                />
+                <Image
+                  className="h-[20px] sm:h-[30px] w-[20px] sm:w-[30px]"
+                  src={JavascriptIcon}
+                  alt="js-icon"
+                />
+                <Image
+                  className="h-[20px] sm:h-[30px] w-[20px] sm:w-[30px]"
+                  src={HtmlIcon}
+                  alt="html-icon"
+                />
+                <Image
+                  className="h-[20px] sm:h-[30px] w-[20px] sm:w-[30px]"
+                  src={CssIcon}
+                  alt="css-icon"
+                />
+                <Image
+                  className="h-[20px] sm:h-[30px] w-[20px] sm:w-[30px]"
+                  src={SqlIcon}
+                  alt="sql-icon"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -182,10 +187,10 @@ const Projects = (props: Props) => {
       <Image
         src={SocialMedia}
         alt="catering-img"
-        className="rounded-lg min-w-[100px] w-full max-w-[650px] aspect-square object-cover shadow-lg"
+        className="rounded-lg min-w-[100px] w-[90vw] sm:w-full max-w-[650px] aspect-square object-cover shadow-lg"
       />
       <div className="absolute top-0 left-0 w-full h-full bg-white/80">
-        <div className="p-6 sm:p-12 flex flex-col gap-2 sm:gap-4">
+        <div className="p-6 sm:p-12 flex flex-col gap-2 sm:gap-4 w-full h-full">
           <div className="flex items-center gap-2 text-[12px] sm:text-xl font-bold border-b-[1px] border-black w-fit ">
             <p>Social Media Platform</p>{" "}
             <Link
@@ -200,53 +205,55 @@ const Projects = (props: Props) => {
               />
             </Link>
           </div>
-          <p className="text-[10px] sm:text-lg max-h-[25vh] sm:max-h-none overflow-y-auto">
-            The Social Media Website is a dynamic platform built with React,
-            HTML, and CSS for the front end, utilizing PHP to create a robust
-            API, and PostgreSQL as the backend database. The project
-            incorporates user authentication, profile customization, post
-            sharing, a friendship system and private messaging. Its responsive
-            design ensures a seamless experience across devices. With a RESTful
-            API and scalable architecture, the platform supports a growing user
-            base. Future enhancements may include media sharing, real-time
-            updates, and advanced search features, reflecting a commitment to
-            continual improvement and user satisfaction.
-          </p>
-          <div className="flex sm:flex-col gap-2 sm:gap-4">
-            <p className="text-[11px] sm:text-lg font-bold">
-              Technologies Used :
+          <div className="flex flex-col gap-2 overflow-y-auto">
+            <p className="text-[10px] sm:text-lg flex-1 sm:max-h-none ">
+              The Social Media Website is a dynamic platform built with React,
+              HTML, and CSS for the front end, utilizing PHP to create a robust
+              API, and PostgreSQL as the backend database. The project
+              incorporates user authentication, profile customization, post
+              sharing, a friendship system and private messaging. Its responsive
+              design ensures a seamless experience across devices. With a
+              RESTful API and scalable architecture, the platform supports a
+              growing user base. Future enhancements may include media sharing,
+              real-time updates, and advanced search features, reflecting a
+              commitment to continual improvement and user satisfaction.
             </p>
-            <div className="flex gap-2 sm:gap-4">
-              <Image
-                className="h-[20px] sm:h-[30px] w-[20px] sm:w-[30px]"
-                src={ReactIcon}
-                alt="react-icon"
-              />
-              <Image
-                className="h-[20px] sm:h-[30px] w-[20px] sm:w-[30px]"
-                src={PhpIcon}
-                alt="php-icon"
-              />
-              <Image
-                className="h-[20px] sm:h-[30px] w-[20px] sm:w-[30px]"
-                src={JavascriptIcon}
-                alt="js-icon"
-              />
-              <Image
-                className="h-[20px] sm:h-[30px] w-[20px] sm:w-[30px]"
-                src={HtmlIcon}
-                alt="html-icon"
-              />
-              <Image
-                className="h-[20px] sm:h-[30px] w-[20px] sm:w-[30px]"
-                src={CssIcon}
-                alt="css-icon"
-              />
-              <Image
-                className="h-[20px] sm:h-[30px] w-[20px] sm:w-[30px]"
-                src={PostgresIcon}
-                alt="postgres-icon"
-              />
+            <div className="flex sm:flex-col flex-wrap gap-2 sm:gap-4">
+              <p className="text-[11px] sm:text-lg font-bold">
+                Technologies Used :
+              </p>
+              <div className="flex gap-2 sm:gap-4">
+                <Image
+                  className="h-[20px] sm:h-[30px] w-[20px] sm:w-[30px]"
+                  src={ReactIcon}
+                  alt="react-icon"
+                />
+                <Image
+                  className="h-[20px] sm:h-[30px] w-[20px] sm:w-[30px]"
+                  src={PhpIcon}
+                  alt="php-icon"
+                />
+                <Image
+                  className="h-[20px] sm:h-[30px] w-[20px] sm:w-[30px]"
+                  src={JavascriptIcon}
+                  alt="js-icon"
+                />
+                <Image
+                  className="h-[20px] sm:h-[30px] w-[20px] sm:w-[30px]"
+                  src={HtmlIcon}
+                  alt="html-icon"
+                />
+                <Image
+                  className="h-[20px] sm:h-[30px] w-[20px] sm:w-[30px]"
+                  src={CssIcon}
+                  alt="css-icon"
+                />
+                <Image
+                  className="h-[20px] sm:h-[30px] w-[20px] sm:w-[30px]"
+                  src={PostgresIcon}
+                  alt="postgres-icon"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -258,10 +265,10 @@ const Projects = (props: Props) => {
       <Image
         src={Netflix}
         alt="catering-img"
-        className="rounded-lg min-w-[100px] w-full max-w-[700px] aspect-square object-cover shadow-lg"
+        className="rounded-lg min-w-[100px] w-[90vw] max-w-[700px] aspect-square object-cover shadow-lg"
       />
       <div className="absolute top-0 left-0 w-full h-full bg-white/80">
-        <div className="p-6 sm:p-12 flex flex-col gap-2 sm:gap-4">
+        <div className="p-6 sm:p-12 flex flex-col gap-2 sm:gap-4  w-full h-full">
           <div className="flex items-center gap-2 text-[12px] sm:text-xl font-bold border-b-[1px] border-black w-fit ">
             <p>Netflix Clone</p>
             <Link
@@ -276,46 +283,49 @@ const Projects = (props: Props) => {
               />
             </Link>
           </div>
-          <p className="text-[10px] sm:text-lg max-h-[25vh] sm:max-h-none overflow-y-auto">
-            The Netflix Clone is powered by React and CSS, replicating the
-            appearance and user interface of the renowned streaming service. The
-            project seamlessly integrates with an external API to dynamically
-            fetch and display content, ensuring an up-to-date and authentic user
-            experience. Utilizing React components and responsive CSS, the clone
-            mimics Netflix&apos;s visual design, including features like content
-            carousels, genre categorization, and interactive movie or series
-            details. The modular structure of React enhances code organization
-            and maintainability, while the external API connection facilitates
-            real-time updates to the displayed data. This Netflix Clone
-            front-end successfully captures the essence of the original
-            platform, delivering a visually appealing and responsive interface
-            with content sourced from an external API.
-          </p>
-          <div className="flex sm:flex-col gap-2 sm:gap-4">
-            <p className="text-[11px] sm:text-lg font-bold">
-              Technologies Used :
+          <div className="flex flex-col gap-2 overflow-y-auto">
+            <p className="text-[10px] sm:text-lg flex-1 sm:max-h-none ">
+              The Netflix Clone is powered by React and CSS, replicating the
+              appearance and user interface of the renowned streaming service.
+              The project seamlessly integrates with an external API to
+              dynamically fetch and display content, ensuring an up-to-date and
+              authentic user experience. Utilizing React components and
+              responsive CSS, the clone mimics Netflix&apos;s visual design,
+              including features like content carousels, genre categorization,
+              and interactive movie or series details. The modular structure of
+              React enhances code organization and maintainability, while the
+              external API connection facilitates real-time updates to the
+              displayed data. This Netflix Clone front-end successfully captures
+              the essence of the original platform, delivering a visually
+              appealing and responsive interface with content sourced from an
+              external API.
             </p>
-            <div className="flex gap-2 sm:gap-4">
-              <Image
-                className="h-[20px] sm:h-[30px] w-[20px] sm:w-[30px]"
-                src={ReactIcon}
-                alt="react-icon"
-              />
-              <Image
-                className="h-[20px] sm:h-[30px] w-[20px] sm:w-[30px]"
-                src={HtmlIcon}
-                alt="html-icon"
-              />
-              <Image
-                className="h-[20px] sm:h-[30px] w-[20px] sm:w-[30px]"
-                src={CssIcon}
-                alt="css-icon"
-              />
-              <Image
-                className="h-[20px] sm:h-[30px] w-[20px] sm:w-[30px]"
-                src={JavascriptIcon}
-                alt="js-icon"
-              />
+            <div className="flex sm:flex-col flex-wrap gap-2 sm:gap-4">
+              <p className="text-[11px] sm:text-lg font-bold">
+                Technologies Used :
+              </p>
+              <div className="flex gap-2 sm:gap-4">
+                <Image
+                  className="h-[20px] sm:h-[30px] w-[20px] sm:w-[30px]"
+                  src={ReactIcon}
+                  alt="react-icon"
+                />
+                <Image
+                  className="h-[20px] sm:h-[30px] w-[20px] sm:w-[30px]"
+                  src={HtmlIcon}
+                  alt="html-icon"
+                />
+                <Image
+                  className="h-[20px] sm:h-[30px] w-[20px] sm:w-[30px]"
+                  src={CssIcon}
+                  alt="css-icon"
+                />
+                <Image
+                  className="h-[20px] sm:h-[30px] w-[20px] sm:w-[30px]"
+                  src={JavascriptIcon}
+                  alt="js-icon"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -327,10 +337,10 @@ const Projects = (props: Props) => {
       <Image
         src={Whatsapp}
         alt="catering-img"
-        className="rounded-lg min-w-[100px] w-full max-w-[630px] aspect-square object-cover shadow-lg"
+        className="rounded-lg min-w-[100px] w-[90vw] max-w-[630px] aspect-square object-cover shadow-lg"
       />
       <div className="absolute top-0 left-0 w-full h-full bg-white/80">
-        <div className="p-6 sm:p-12 flex flex-col gap-2 sm:gap-4">
+        <div className="p-6 sm:p-12 flex flex-col gap-2 sm:gap-4  w-full h-full">
           <div className="flex items-center gap-2 text-[12px] sm:text-xl font-bold border-b-[1px] border-black w-fit ">
             <p> Whatsapp Clone</p>{" "}
             <Link
@@ -345,43 +355,46 @@ const Projects = (props: Props) => {
               />
             </Link>
           </div>
-          <p className="text-[10px] sm:text-lg max-h-[25vh] sm:max-h-none overflow-y-auto">
-            The WhatsApp Clone front-end, developed using React and CSS,
-            meticulously replicates the user interface of the popular messaging
-            application. This project focuses on UI design and layout, mirroring
-            WhatsApp&apos;s familiar aesthetics. From the chat interface to the
-            contact list and group chat visuals, the clone captures the essence
-            of WhatsApp without integrating an external API for working
-            functionalities. While this version is a static representation, it
-            provides a foundation for potential future integration with back-end
-            technologies, enabling real-time messaging and dynamic data
-            interactions to bring the full WhatsApp experience to life.
-          </p>
-          <div className="flex sm:flex-col gap-2 sm:gap-4">
-            <p className="text-[11px] sm:text-lg font-bold">
-              Technologies Used :
+          <div className="flex flex-col gap-2 overflow-y-auto">
+            <p className="text-[10px] sm:text-lg flex-1 sm:max-h-none ">
+              The WhatsApp Clone front-end, developed using React and CSS,
+              meticulously replicates the user interface of the popular
+              messaging application. This project focuses on UI design and
+              layout, mirroring WhatsApp&apos;s familiar aesthetics. From the
+              chat interface to the contact list and group chat visuals, the
+              clone captures the essence of WhatsApp without integrating an
+              external API for working functionalities. While this version is a
+              static representation, it provides a foundation for potential
+              future integration with back-end technologies, enabling real-time
+              messaging and dynamic data interactions to bring the full WhatsApp
+              experience to life.
             </p>
-            <div className="flex gap-2 sm:gap-4">
-              <Image
-                className="h-[20px] sm:h-[30px] w-[20px] sm:w-[30px]"
-                src={ReactIcon}
-                alt="react-icon"
-              />
-              <Image
-                className="h-[20px] sm:h-[30px] w-[20px] sm:w-[30px]"
-                src={HtmlIcon}
-                alt="html-icon"
-              />
-              <Image
-                className="h-[20px] sm:h-[30px] w-[20px] sm:w-[30px]"
-                src={CssIcon}
-                alt="css-icon"
-              />
-              <Image
-                className="h-[20px] sm:h-[30px] w-[20px] sm:w-[30px]"
-                src={JavascriptIcon}
-                alt="js-icon"
-              />
+            <div className="flex sm:flex-col flex-wrap gap-2 sm:gap-4">
+              <p className="text-[11px] sm:text-lg font-bold">
+                Technologies Used :
+              </p>
+              <div className="flex gap-2 sm:gap-4">
+                <Image
+                  className="h-[20px] sm:h-[30px] w-[20px] sm:w-[30px]"
+                  src={ReactIcon}
+                  alt="react-icon"
+                />
+                <Image
+                  className="h-[20px] sm:h-[30px] w-[20px] sm:w-[30px]"
+                  src={HtmlIcon}
+                  alt="html-icon"
+                />
+                <Image
+                  className="h-[20px] sm:h-[30px] w-[20px] sm:w-[30px]"
+                  src={CssIcon}
+                  alt="css-icon"
+                />
+                <Image
+                  className="h-[20px] sm:h-[30px] w-[20px] sm:w-[30px]"
+                  src={JavascriptIcon}
+                  alt="js-icon"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -393,10 +406,10 @@ const Projects = (props: Props) => {
       <Image
         src={Lottery}
         alt="catering-img"
-        className="rounded-lg min-w-[100px] w-full max-w-[700px] aspect-square object-cover shadow-lg"
+        className="rounded-lg min-w-[100px] w-[90vw] max-w-[700px] aspect-square object-cover shadow-lg"
       />
       <div className="absolute top-0 left-0 w-full h-full bg-white/80">
-        <div className="p-6 sm:p-12 flex flex-col gap-2 sm:gap-4">
+        <div className="p-6 sm:p-12 flex flex-col gap-2 sm:gap-4 w-full h-full">
           <div className="flex items-center gap-2 text-[12px] sm:text-xl font-bold border-b-[1px] border-black w-fit ">
             <p>Decentralised Lottery</p>{" "}
             <Link
@@ -411,46 +424,48 @@ const Projects = (props: Props) => {
               />
             </Link>
           </div>
-          <p className="text-[10px] sm:text-lg max-h-[25vh] sm:max-h-none overflow-y-auto">
-            The Web3 Lottery Project seamlessly integrates Hardhat for smart
-            contract development and Next.js for the front-end, creating a
-            decentralized lottery system on the Ethereum blockchain. Users
-            participate by sending 1 ETH to the contract, and the system
-            randomly selects a winner. Developed with Hardhat, the smart
-            contract manages the lottery logic and ensures transparency. Next.js
-            facilitates the creation of a dynamic and responsive front-end,
-            allowing users to interact with the decentralized application (dApp)
-            intuitively. This Web3 Lottery Project leverages blockchain
-            technology for a secure and transparent lottery experience,
-            combining the reliability of Ethereum smart contracts with a
-            user-friendly front-end for a seamless lottery participation
-            process.
-          </p>
-          <div className="flex sm:flex-col gap-2 sm:gap-4">
-            <p className="text-[11px] sm:text-lg font-bold">
-              Technologies Used :
+          <div className="flex flex-col gap-2 overflow-y-auto">
+            <p className="text-[10px] sm:text-lg flex-1 sm:max-h-none ">
+              The Web3 Lottery Project seamlessly integrates Hardhat for smart
+              contract development and Next.js for the front-end, creating a
+              decentralized lottery system on the Ethereum blockchain. Users
+              participate by sending 1 ETH to the contract, and the system
+              randomly selects a winner. Developed with Hardhat, the smart
+              contract manages the lottery logic and ensures transparency.
+              Next.js facilitates the creation of a dynamic and responsive
+              front-end, allowing users to interact with the decentralized
+              application (dApp) intuitively. This Web3 Lottery Project
+              leverages blockchain technology for a secure and transparent
+              lottery experience, combining the reliability of Ethereum smart
+              contracts with a user-friendly front-end for a seamless lottery
+              participation process.
             </p>
-            <div className="flex gap-2 sm:gap-4">
-              <Image
-                className="h-[20px] sm:h-[30px] w-[20px] sm:w-[30px]"
-                src={NextIcon}
-                alt="nextjs-icon"
-              />
-              <Image
-                className="h-[20px] sm:h-[30px] w-[20px] sm:w-[30px]"
-                src={SolidityIcon}
-                alt="solidity-icon"
-              />
-              <Image
-                className="h-[20px] sm:h-[30px] w-[20px] sm:w-[30px]"
-                src={TailwindIcon}
-                alt="tailwind-icon"
-              />
-              <Image
-                className="h-[20px] sm:h-[30px] w-[20px] sm:w-[30px]"
-                src={HardhatIcon}
-                alt="hardhat-icon"
-              />
+            <div className="flex sm:flex-col flex-wrap gap-2 sm:gap-4">
+              <p className="text-[11px] sm:text-lg font-bold">
+                Technologies Used :
+              </p>
+              <div className="flex gap-2 sm:gap-4">
+                <Image
+                  className="h-[20px] sm:h-[30px] w-[20px] sm:w-[30px]"
+                  src={NextIcon}
+                  alt="nextjs-icon"
+                />
+                <Image
+                  className="h-[20px] sm:h-[30px] w-[20px] sm:w-[30px]"
+                  src={SolidityIcon}
+                  alt="solidity-icon"
+                />
+                <Image
+                  className="h-[20px] sm:h-[30px] w-[20px] sm:w-[30px]"
+                  src={TailwindIcon}
+                  alt="tailwind-icon"
+                />
+                <Image
+                  className="h-[20px] sm:h-[30px] w-[20px] sm:w-[30px]"
+                  src={HardhatIcon}
+                  alt="hardhat-icon"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -458,35 +473,35 @@ const Projects = (props: Props) => {
     </div>
   );
 
-  useEffect(() => {
-    let tabInterval: NodeJS.Timeout;
+  // useEffect(() => {
+  //   let tabInterval: NodeJS.Timeout;
 
-    if (clicked) {
-      setTimeout(
-        () => {
-          tabInterval = setInterval(() => {
-            const tabIndex = TABS.lastIndexOf(activeTab);
-            const nextTabIndex = (tabIndex + 1) % 4; // Assuming you have 3 tabs
+  //   if (clicked) {
+  //     setTimeout(
+  //       () => {
+  //         tabInterval = setInterval(() => {
+  //           const tabIndex = TABS.lastIndexOf(activeTab);
+  //           const nextTabIndex = (tabIndex + 1) % 4; // Assuming you have 3 tabs
 
-            // Start from the 1st index (skipping 0th index)
-            setActiveTab(TABS[nextTabIndex === 0 ? 1 : nextTabIndex]);
-          }, 30000);
-        } /* Specify your timeout duration here */
-      );
-    } else {
-      tabInterval = setInterval(() => {
-        const tabIndex = TABS.lastIndexOf(activeTab);
-        const nextTabIndex = (tabIndex + 1) % 4; // Assuming you have 3 tabs
+  //           // Start from the 1st index (skipping 0th index)
+  //           setActiveTab(TABS[nextTabIndex === 0 ? 1 : nextTabIndex]);
+  //         }, 30000);
+  //       } /* Specify your timeout duration here */
+  //     );
+  //   } else {
+  //     tabInterval = setInterval(() => {
+  //       const tabIndex = TABS.lastIndexOf(activeTab);
+  //       const nextTabIndex = (tabIndex + 1) % 4; // Assuming you have 3 tabs
 
-        // Start from the 1st index (skipping 0th index)
-        setActiveTab(TABS[nextTabIndex === 0 ? 1 : nextTabIndex]);
-      }, 3000);
-    }
+  //       // Start from the 1st index (skipping 0th index)
+  //       setActiveTab(TABS[nextTabIndex === 0 ? 1 : nextTabIndex]);
+  //     }, 3000);
+  //   }
 
-    return () => {
-      clearInterval(tabInterval);
-    };
-  }, [activeTab, clicked]);
+  //   return () => {
+  //     clearInterval(tabInterval);
+  //   };
+  // }, [activeTab, clicked]);
 
   return (
     <section
