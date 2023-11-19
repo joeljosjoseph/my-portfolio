@@ -14,3 +14,5 @@ export const WHATSAPP_PROJECT =
   "https://github.com/joeljosjoseph/whatsapp-clone";
 export const LOTTERY_PROJECT =
   "https://github.com/joeljosjoseph/hardhat-lottery";
+export const PDF_DOWNLOAD =
+  "https://drive.google.com/file/d/1E5tSfUVXdpFM456wquBVgnAbt4daeOQ5/view?usp=sharing";
