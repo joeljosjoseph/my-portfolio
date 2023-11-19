@@ -506,7 +506,7 @@ const Projects = (props: Props) => {
           ></path>
         </svg>
       </div>
-      <div className="min-h-[70vh] lg:min-h-[60vh] py-20 w-full flex flex-col justify-center gap-10 animate-div">
+      <div className="min-h-[70vh] lg:min-h-[70vh] py-20 w-full flex flex-col gap-10 animate-div">
         <p className="text-4xl max-w-[1000px] mx-auto w-full">Projects.</p>
         <div className="max-w-[1000px] w-full mx-auto flex gap-2">
           <Tab tabs={TABS} activeTab={activeTab} handleClick={handleTabClick} />
