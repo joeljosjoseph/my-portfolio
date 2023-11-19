@@ -136,6 +136,9 @@ div {
 .animate-div {
   animation: append-animate 0.3s linear;
 }
+.animate-div-height {
+  animation: append-animate-height 0.3s linear;
+}
 
 @keyframes append-animate {
   from {
@@ -143,6 +146,18 @@ div {
     opacity: 0;
   }
   to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes append-animate-height {
+  from {
+    height: 0xp;
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    height: auto;
     transform: scale(1);
     opacity: 1;
   }
