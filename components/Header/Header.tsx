@@ -103,7 +103,7 @@ const Header = (props: Props) => {
       <div
         className={`${
           showSidebar ? "opacity-100 " : "opacity-0 translate-x-[100vw]"
-        } absolute top-0 left-0 h-[100vh] w-full bg-black/50 transition-opacity`}
+        } absolute top-0 left-0 h-[100vh] w-full bg-black/70 transition-opacity`}
       ></div>
       <div
         ref={sidebarRef}
