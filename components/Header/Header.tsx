@@ -90,7 +90,7 @@ const Header = (props: Props) => {
 
   return (
     <div
-      className={`fixed ${bgColor} z-[1000] py-4 md:py-8 lg:py-0 px-8 lg:px-16 flex justify-between items-center w-full duration-1000 group backdrop-blur-sm `}
+      className={`fixed ${bgColor} z-[500] py-4 md:py-8 lg:py-0 px-8 lg:px-16 flex justify-between items-center w-full duration-1000 group backdrop-blur-sm `}
     >
       <h1 className="text-4xl sm:text-5xl text-white font-extrabold">JJJ</h1>
       {/* mobile screen sidebar */}
@@ -101,8 +101,13 @@ const Header = (props: Props) => {
         />
       </div>
       <div
+        className={`${
+          showSidebar ? "opacity-100 " : "opacity-0 translate-x-[100vw]"
+        } absolute top-0 left-0 h-[100vh] w-full bg-black/50 transition-opacity`}
+      ></div>
+      <div
         ref={sidebarRef}
-        className={`lg:hidden absolute bg-white/90 h-[100vh] w-[70vw] top-0 right-0 transition-all ease-linear duration-300 ${
+        className={`lg:hidden z-[600] absolute bg-white/90 h-[100vh] w-[70vw] top-0 right-0 transition-all ease-linear duration-300 ${
           showSidebar ? "translate-x-[0px]" : "translate-x-[1000px]"
         }`}
       >
