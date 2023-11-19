@@ -134,7 +134,7 @@ const Contact = (props: Props) => {
                 )}
               </div>
             </div>
-            <div className="flex flex-col flex-1 gap-1">
+            <div className="flex flex-col flex-1 gap-1 ">
               <textarea
                 placeholder="Enter Message"
                 {...register("message", {
@@ -147,7 +147,7 @@ const Contact = (props: Props) => {
                     message: "Character limit exceeded",
                   },
                 })}
-                className={`${inputClass} leading-normal resize-none overflow-auto`}
+                className={`${inputClass} leading-normal resize-none overflow-auto min-h-[150px]`}
               />
               {errors.message && (
                 <ErrorMessage>{errors?.message?.message}</ErrorMessage>
