@@ -2,23 +2,13 @@ import React from "react";
 import AnimateOnScroll from "../AnimateOnScroll/AnimateOnScroll";
 import Image from "next/image";
 import Profile from "@/public/images/Profile.jpg";
+import { PDF_DOWNLOAD } from "@/public/constants/constants";
 
 type Props = {};
 
 const About = (props: Props) => {
-  const handleDownload = () => {
-    // Example: Specify the path to the file in the public directory
-    const filePath = "/files/resume.pdf";
-
-    // Create a temporary link element
-    const link = document.createElement("a");
-
-    // Set the download attribute and create a URL from the file path
-    link.download = "resume.pdf";
-    link.href = filePath;
-
-    // Trigger a click event on the link
-    link.click();
+  const handleDownload = async () => {
+    window.open(PDF_DOWNLOAD, "_blank");
   };
 
   return (
