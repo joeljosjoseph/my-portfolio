@@ -32,14 +32,9 @@ const HomeSection = (props: Props) => {
   }, [setBioText]);
   return (
     <section id="home" className="h-[120vh] min-h-[300px] relative">
-      {/* <Image
-            alt="laptop"
-            src={LaptopBackground}
-            className="bg-blend-multiply w-full brightness-50 object-cover h-[100vh] absolute"
-          /> */}
       <div className="absolute text-white top-[40%] left-[50%] translate-x-[-50%] translate-y-[-50%] flex flex-col gap-10 justify-center items-center px-4">
         <div className="text-3xl lg:text-7xl font-bold whitespace-nowrap">
-          HELLO, I'M JOEL
+          HELLO, I&apos;M JOEL
         </div>
         <div
           className={`landing-page-bio-wrapper flex w-full justify-center text-lg lg:text-2xl`}

@@ -71,9 +71,9 @@ const Projects = (props: Props) => {
             The Tic Tac Toe game is a classic two-player game where players take
             turns marking spaces in a 3x3 grid. The objective is to be the first
             to complete a row, column, or diagonal with their chosen marker
-            (either "X" or "O"). The game provides a clean and intuitive user
-            interface, with alternating turns, clear win/lose conditions, and an
-            option to restart the game.
+            (either &quot;X&quot; or &quot;O&quot;). The game provides a clean
+            and intuitive user interface, with alternating turns, clear win/lose
+            conditions, and an option to restart the game.
           </p>
 
           <div className="flex sm:flex-col gap-2 sm:gap-4">
@@ -282,7 +282,7 @@ const Projects = (props: Props) => {
             project seamlessly integrates with an external API to dynamically
             fetch and display content, ensuring an up-to-date and authentic user
             experience. Utilizing React components and responsive CSS, the clone
-            mimics Netflix's visual design, including features like content
+            mimics Netflix&apos;s visual design, including features like content
             carousels, genre categorization, and interactive movie or series
             details. The modular structure of React enhances code organization
             and maintainability, while the external API connection facilitates
@@ -349,7 +349,7 @@ const Projects = (props: Props) => {
             The WhatsApp Clone front-end, developed using React and CSS,
             meticulously replicates the user interface of the popular messaging
             application. This project focuses on UI design and layout, mirroring
-            WhatsApp's familiar aesthetics. From the chat interface to the
+            WhatsApp&apos;s familiar aesthetics. From the chat interface to the
             contact list and group chat visuals, the clone captures the essence
             of WhatsApp without integrating an external API for working
             functionalities. While this version is a static representation, it
