@@ -24,7 +24,7 @@ export const SKILL_GROUPS: SkillGroup[] = [
   {
     name: "Back-end and real-time",
     description:
-      "APIs and real-time servers in Node.js with Express and Socket.io, backed by PostgreSQL, MySQL or Firebase.",
+      "APIs and real-time servers in Node.js with Express and Socket.io, backed by PostgreSQL, MySQL or Firebase. I also write Python, including a desktop app with tkinter.",
     tech: [
       "nodejs",
       "express",
@@ -34,6 +34,8 @@ export const SKILL_GROUPS: SkillGroup[] = [
       "mysql",
       "firebase",
       "php",
+      "python",
+      "tkinter"
     ],
   },
   {

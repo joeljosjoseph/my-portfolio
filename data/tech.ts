@@ -53,6 +53,7 @@ const TECH_DEFS = {
   render: { label: "Render", Icon: SiRender },
   solidity: { label: "Solidity", Icon: SiSolidity },
   hardhat: { label: "Hardhat" },
+  tkinter: { label: "tkinter" },
 };
 
 export type TechKey = keyof typeof TECH_DEFS;
