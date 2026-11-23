@@ -1,12 +1,12 @@
-import React, { ReactElement } from "react";
+import React from "react";
 
-type Props = { children: string | ReactElement | undefined };
+type Props = { id?: string; children: string | undefined };
 
-const ErrorMessage = ({ children }: Props) => {
+const ErrorMessage = ({ id, children }: Props) => {
   return (
-    <span className="text-red-600 font-bold text-[10px] sm:text-base animate-div">
+    <p id={id} className="mt-2 text-sm font-medium text-red-700">
       {children}
-    </span>
+    </p>
   );
 };
 

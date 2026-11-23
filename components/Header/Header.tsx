@@ -1,228 +1,153 @@
 "use client";
-import React, { ReactEventHandler, useEffect, useRef, useState } from "react";
-import { CiMenuBurger } from "react-icons/ci";
+import React, { useEffect, useRef, useState } from "react";
 
-type Props = {};
+const LINKS = [
+  { id: "home", label: "Home" },
+  { id: "about", label: "About" },
+  { id: "skills", label: "Skills" },
+  { id: "services", label: "Services" },
+  { id: "projects", label: "Projects" },
+  { id: "contact", label: "Contact" },
+];
 
-const Header = (props: Props) => {
-  // state to show/hide sidebar for smaller screens
-  const [showSidebar, setShowSidebar] = useState(false);
-  const [bgColor, setBgColor] = useState("bg-transparent");
+const Header = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
 
-  const sidebarRef = useRef<HTMLDivElement | null>(null);
-
-  const NavLinkClass = (id: string) => {
-    return `cursor-pointer before:transition-transform ease-linear duration-300 group before:absolute before:bottom-[-5px] before:content-[' '] before:w-full before:h-[2px] before:rounded-xl before:bg-black lg:before:bg-white ${
-      activeSection === id
-        ? "before:origin-left before:scale-x-100"
-        : "before:scale-x-0 before:origin-right "
-    } hover:before:scale-x-100 hover:before:origin-left`;
-  };
-  const handleClickOutside = (event: MouseEvent) => {
-    // Check if the sidebar is open and the clicked element is outside the sidebar
-    if (
-      sidebarRef.current &&
-      !sidebarRef.current.contains(event.target as Node)
-    ) {
-      setShowSidebar(false);
-    }
-  };
-
-  const handleNavClick = (link: string) => {
-    if (showSidebar) setShowSidebar(false);
-    // Scroll to the section with the corresponding ID
-    const element = document.getElementById(link);
-    if (element) {
-      element.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-        inline: "nearest",
-      });
-    }
-  };
-
+  // Darken the bar once the page has scrolled past the top.
   useEffect(() => {
-    // Attach the event listener when the component mounts
-    document.addEventListener("mouseup", handleClickOutside);
-    document.addEventListener("scroll", (event: Event) => {
-      if (window.scrollY > 150) {
-        setBgColor("bg-black/80");
-      } else {
-        setBgColor("bg-transparent");
-      }
-    });
-
-    // Clean up the event listener when the component unmounts
-    return () => {
-      document.removeEventListener("mouseup", handleClickOutside);
-    };
+    const onScroll = () => setScrolled(window.scrollY > 80);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Highlight the section that is crossing the middle of the screen.
   useEffect(() => {
-    const handleScroll = () => {
-      // Calculate which section is in view based on scroll position
-      const sections = document.querySelectorAll("section");
-      let found = false;
-
-      sections.forEach((section) => {
-        const rect = section.getBoundingClientRect();
-
-        if (
-          rect.top <= window.innerHeight / 2 &&
-          rect.bottom >= window.innerHeight / 2 &&
-          !found
-        ) {
-          setActiveSection(section.id);
-          found = true;
-        }
-      });
-    };
-
-    // Attach the event listener
-    window.addEventListener("scroll", handleScroll);
-
-    // Cleanup the event listener on component unmount
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    const sections = LINKS.map((link) =>
+      document.getElementById(link.id)
+    ).filter((el): el is HTMLElement => el !== null);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActiveSection(entry.target.id);
+        });
+      },
+      { rootMargin: "-50% 0px -50% 0px" }
+    );
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
   }, []);
+
+  // While the mobile menu is open: close on Escape, lock page scroll, focus the close button.
+  useEffect(() => {
+    if (!menuOpen) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setMenuOpen(false);
+    };
+    document.addEventListener("keydown", onKeyDown);
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    closeButtonRef.current?.focus();
+    return () => {
+      document.removeEventListener("keydown", onKeyDown);
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [menuOpen]);
 
   return (
-    <div
-      className={`fixed ${bgColor} z-[500] py-4 md:py-8 lg:py-0 px-8 lg:px-16 flex justify-between items-center w-full duration-1000 group backdrop-blur-sm `}
-    >
-      <h1 className="text-4xl sm:text-5xl text-white font-extrabold">JJJ</h1>
-      {/* mobile screen sidebar */}
-      <div>
-        <CiMenuBurger
-          className="text-white text-2xl lg:hidden"
-          onClick={() => setShowSidebar(true)}
-        />
-      </div>
+    <header className="dark-surface fixed inset-x-0 top-0 z-[500] text-white">
+      {/* The background sits on its own layer so the blur doesn't trap the fixed mobile menu. */}
       <div
-        className={`${
-          showSidebar ? "opacity-100 " : "opacity-0 translate-x-[100vw]"
-        } absolute top-0 left-0 h-[100vh] w-full bg-black/70 transition-opacity`}
-      ></div>
-      <div
-        ref={sidebarRef}
-        className={`lg:hidden z-[600] absolute bg-white/90 h-[100vh] w-[70vw] top-0 right-0 transition-all ease-linear duration-300 ${
-          showSidebar ? "translate-x-[0px]" : "translate-x-[1000px]"
+        aria-hidden="true"
+        className={`absolute inset-0 bg-black/90 backdrop-blur transition-opacity duration-500 ${
+          scrolled ? "opacity-100" : "opacity-0"
         }`}
-      >
-        <div className="flex flex-col gap-6 py-8 px-5 font-medium">
-          <div className="relative w-fit">
-            <p
-              className={NavLinkClass("home")}
-              onClick={() => handleNavClick("home")}
-            >
-              Home
-            </p>
-          </div>
-          <div className="relative w-fit">
-            {" "}
-            <p
-              className={NavLinkClass("about")}
-              onClick={() => handleNavClick("about")}
-            >
-              About Me
-            </p>
-          </div>
-          <div className="relative w-fit">
-            {" "}
-            <p
-              className={NavLinkClass("skills")}
-              onClick={() => handleNavClick("skills")}
-            >
-              Skills
-            </p>
-          </div>
-          <div className="relative w-fit">
-            {" "}
-            <p
-              className={NavLinkClass("services")}
-              onClick={() => handleNavClick("services")}
-            >
-              Services
-            </p>
-          </div>
-          <div className="relative w-fit">
-            {" "}
-            <p
-              className={NavLinkClass("projects")}
-              onClick={() => handleNavClick("projects")}
-            >
-              Projects
-            </p>
-          </div>
-          <div className="relative w-fit">
-            {" "}
-            <p
-              className={NavLinkClass("contact")}
-              onClick={() => handleNavClick("contact")}
-            >
-              Contact
-            </p>
-          </div>
-        </div>
+      />
+      <div className="page-width relative flex items-center justify-between py-4">
+        <a
+          href="#home"
+          aria-label="Joel Jos Joseph, back to top"
+          className="font-display text-3xl font-extrabold tracking-tight"
+        >
+          JJJ
+        </a>
+
+        <nav aria-label="Primary" className="hidden md:block">
+          <ul className="flex gap-8 text-sm">
+            {LINKS.map((link) => (
+              <li key={link.id}>
+                <a
+                  href={`#${link.id}`}
+                  aria-current={activeSection === link.id ? "location" : undefined}
+                  className={`border-b-2 py-1 transition-colors ${
+                    activeSection === link.id
+                      ? "border-white"
+                      : "border-transparent hover:border-white/50"
+                  }`}
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        <button
+          type="button"
+          className="border border-white/50 px-4 py-2 text-sm md:hidden"
+          aria-expanded={menuOpen}
+          aria-controls="mobile-menu"
+          onClick={() => setMenuOpen(true)}
+        >
+          Menu
+        </button>
       </div>
-      <div className="hidden lg:flex gap-12 py-8 px-5 font-medium text-white group-hover:xl:gap-16 group-focus:xl:gap-16">
-        <div className="relative w-fit">
-          <p
-            className={NavLinkClass("home")}
-            onClick={() => handleNavClick("home")}
+
+      {menuOpen && (
+        <div className="fixed inset-0 z-[600] md:hidden">
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 animate-fade-in bg-black/70"
+            onClick={() => setMenuOpen(false)}
+          />
+          <nav
+            id="mobile-menu"
+            aria-label="Mobile"
+            className="absolute right-0 top-0 flex h-full w-[75vw] max-w-sm animate-slide-in flex-col bg-white px-6 py-4 text-black"
           >
-            Home
-          </p>
+            <button
+              ref={closeButtonRef}
+              type="button"
+              className="self-end border border-black/40 px-4 py-2 text-sm"
+              onClick={() => setMenuOpen(false)}
+            >
+              Close
+            </button>
+            <ul className="mt-8 flex flex-col gap-6">
+              {LINKS.map((link) => (
+                <li key={link.id}>
+                  <a
+                    href={`#${link.id}`}
+                    aria-current={
+                      activeSection === link.id ? "location" : undefined
+                    }
+                    onClick={() => setMenuOpen(false)}
+                    className={`font-display text-2xl font-semibold ${
+                      activeSection === link.id ? "text-accent" : ""
+                    }`}
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
         </div>
-        <div className="relative w-fit">
-          {" "}
-          <p
-            className={NavLinkClass("about")}
-            onClick={() => handleNavClick("about")}
-          >
-            About Me
-          </p>
-        </div>
-        <div className="relative w-fit">
-          {" "}
-          <p
-            className={NavLinkClass("skills")}
-            onClick={() => handleNavClick("skills")}
-          >
-            Skills
-          </p>
-        </div>
-        <div className="relative w-fit">
-          {" "}
-          <p
-            className={NavLinkClass("services")}
-            onClick={() => handleNavClick("services")}
-          >
-            Services
-          </p>
-        </div>
-        <div className="relative w-fit">
-          {" "}
-          <p
-            className={NavLinkClass("projects")}
-            onClick={() => handleNavClick("projects")}
-          >
-            Projects
-          </p>
-        </div>
-        <div className="relative w-fit">
-          {" "}
-          <p
-            className={NavLinkClass("contact")}
-            onClick={() => handleNavClick("contact")}
-          >
-            Contact
-          </p>
-        </div>
-      </div>
-    </div>
+      )}
+    </header>
   );
 };
 

@@ -1,71 +1,65 @@
 import React from "react";
-import ServiceCard from "../Cards/ServiceCard";
 import AnimateOnScroll from "../AnimateOnScroll/AnimateOnScroll";
+import SectionTitle from "../SectionTitle/SectionTitle";
 
-type Props = {};
+const SERVICES = [
+  {
+    title: "Front-end development",
+    description:
+      "I build responsive interfaces with React, Next.js, TypeScript and Tailwind CSS, and I'm comfortable with CSS and SCSS.",
+  },
+  {
+    title: "Full-stack and real-time apps",
+    description:
+      "I build APIs and real-time features with Node.js, Express and Socket.io, and connect them to PostgreSQL, MySQL or Firebase.",
+  },
+  {
+    title: "AI features",
+    description:
+      "I add language-model features to web apps, such as a chat interface on top of the OpenAI API.",
+  },
+  {
+    title: "Performance and optimization",
+    description:
+      "I minimize load times, optimize code and follow best practices so applications stay fast and efficient.",
+  },
+  {
+    title: "Code quality and testing",
+    description:
+      "I write unit and end-to-end tests with Vitest and Playwright and set up CI on GitHub Actions, so changes are safe to ship.",
+  },
+  {
+    title: "Collaboration and communication",
+    description:
+      "I communicate clearly and work well in teams, which keeps projects moving.",
+  },
+];
 
-const Services = (props: Props) => {
+const Services = () => {
   return (
     <section
       id="services"
-      className="min-h-[100vh] py-20 px-4 relative bg-white mt-[-2px]"
+      aria-labelledby="services-title"
+      className="relative bg-white py-24 sm:py-32"
     >
-      <div className="custom-shape-divider-top-1700159661">
-        <svg
-          data-name="Layer 1"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 1200 120"
-          preserveAspectRatio="none"
-        >
-          <path
-            d="M1200 0L0 0 892.25 114.72 1200 0z"
-            className="shape-fill"
-          ></path>
-        </svg>
-      </div>
-      <div className="min-h-[100vh] w-full flex flex-col justify-center gap-10">
-        <p className="text-4xl max-w-[1000px] mx-auto w-full">Services.</p>
-        <div className="max-w-[1000px] w-full h-full flex flex-col justify-between gap-4 items-center mx-auto">
-          {" "}
-          <ul className="">
-            <AnimateOnScroll delay="delay-[100ms]">
-              <li className="flex">
-                <span className="inline-block w-3 h-3 bg-black rounded-full mx-2 my-3 sm:my-6"></span>
-                <ServiceCard
-                  title="Front-end Development"
-                  description="With over a year of experience, I excel in front-end development, leveraging React, TypeScript, and Tailwind CSS. Proficient in CSS and SCSS, I create visually stunning, responsive interfaces for optimal user experiences."
-                />
-              </li>
-            </AnimateOnScroll>
-            <AnimateOnScroll delay="delay-[150ms]">
-              <li className="flex">
-                <span className="inline-block w-3 h-3 bg-black rounded-full mx-2 my-3 sm:my-6"></span>
-                <ServiceCard
-                  title="Performance and Optimization"
-                  description="With a focus on performance optimization, I elevate web applications using strategic techniques. Expertise in minimizing load times, optimizing code, and employing best practices for seamless and efficient user experiences."
-                />
-              </li>
-            </AnimateOnScroll>
-            <AnimateOnScroll delay="delay-[200ms]">
-              <li className="flex">
-                <span className="inline-block w-3 h-3 bg-black rounded-full mx-2 my-3 sm:my-6"></span>
-                <ServiceCard
-                  title=" Collaboration and Communication"
-                  description="As a collaborative front-end developer, I thrive on effective communication and teamwork. With strong interpersonal skills, I contribute positively to projects, fostering a cohesive environment for successful outcomes."
-                />
-              </li>
-            </AnimateOnScroll>
-            <AnimateOnScroll delay="delay-[250ms]">
-              <li className="flex">
-                <span className="inline-block w-3 h-3 bg-black rounded-full mx-2 my-3 sm:my-6"></span>
-                <ServiceCard
-                  title="Code quality and Testing"
-                  description="Setting a standard for best-in-class code quality, I leverage the latest technologies and tools to deliver top-notch front-end solutions. Meticulous in adopting industry best practices, my work reflects a commitment to excellence, innovation, and comprehensive testing methodologies for robust and reliable applications."
-                />
-              </li>
-            </AnimateOnScroll>
-          </ul>
-        </div>
+      <div className="page-width">
+        <SectionTitle id="services-title">Services.</SectionTitle>
+        <ul className="mt-12 border-b border-black/20">
+          {SERVICES.map((service, index) => (
+            <li key={service.title} className="border-t border-black/20">
+              <AnimateOnScroll delay={index * 40}>
+                <div className="grid gap-3 py-8 md:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)] md:gap-10">
+                  <h3 className="font-display text-2xl font-semibold tracking-tight sm:text-3xl">
+                    {service.title}
+                  </h3>
+                  <p className="max-w-[58ch] leading-relaxed text-black/70">
+                    {service.description}
+                  </p>
+                </div>
+              </AnimateOnScroll>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );

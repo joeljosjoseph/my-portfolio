@@ -3,20 +3,79 @@
 @tailwind utilities;
 
 @layer base {
-  html,
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
-    font-family: "Roboto Mono", monospace;
+    @apply bg-white font-mono text-black antialiased;
+  }
+
+  ::selection {
+    background: #2b4bff;
+    color: #fff;
+  }
+
+  :focus-visible {
+    outline: 2px solid #2b4bff;
+    outline-offset: 3px;
+  }
+
+  /* On black or photo backgrounds the blue ring is too dim, so use the soft tint. */
+  .dark-surface :focus-visible {
+    outline-color: #93a4ff;
   }
 }
 
-div {
-  transition: all ease 0.3s;
+@layer components {
+  .page-width {
+    @apply mx-auto w-full max-w-[1100px] px-5 sm:px-8;
+  }
 }
 
+/* Hero: the photo stays pinned while the sections slide up over it. */
+.home-wrapper {
+  background-image: url("../public/images/LaptopBackground.jpg");
+  background-size: cover;
+  background-position: 50% 40%;
+  height: 100vh;
+  width: 100%;
+  position: sticky;
+  margin-bottom: -100vh;
+  top: 0;
+  left: 0;
+  filter: brightness(0.45);
+}
+
+/* The one orchestrated moment: the name rises into place, then the rest fades in. */
+.hero-line {
+  display: block;
+  transform: translateY(105%);
+  animation: hero-rise 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) var(--d, 0ms)
+    forwards;
+}
+
+.hero-fade {
+  opacity: 0;
+  animation: hero-fade 0.7s ease-out var(--d, 0ms) forwards;
+}
+
+@keyframes hero-rise {
+  to {
+    transform: none;
+  }
+}
+
+@keyframes hero-fade {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Typed role line: the text is swapped each time the width returns to zero. */
 .landing-page-bio {
   display: block;
-  min-width: none;
-  animation: animate-bio 3s ease-in-out 1s infinite alternate-reverse;
+  animation: animate-bio 3s ease-in-out 1.2s infinite alternate-reverse;
   overflow: hidden;
   max-width: fit-content;
 }
@@ -25,7 +84,6 @@ div {
   0% {
     width: 0%;
   }
-
   50% {
     width: 100%;
   }
@@ -34,131 +92,22 @@ div {
   }
 }
 
-.home-wrapper {
-  background-image: url("../public/images/LaptopBackground.jpg");
-  background-size: cover;
-  background-position: 0px -80px;
-  height: 100vh;
-  width: 100%;
-  position: sticky;
-  margin-bottom: -100vh;
-  top: 0;
-  left: 0;
-  --tw-brightness: brightness(0.5);
-  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast)
-    var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate)
-    var(--tw-sepia) var(--tw-drop-shadow);
-}
-
-.custom-shape-divider-bottom-1700029275 {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  overflow: hidden;
-  line-height: 0;
-}
-
-.custom-shape-divider-bottom-1700029275 svg {
-  position: relative;
-  display: block;
-  width: calc(219% + 1.3px);
-  height: 79px;
-  transform: rotateY(180deg);
-}
-
-.custom-shape-divider-bottom-1700029275 .shape-fill {
-  fill: #ffffff;
-}
-
-.custom-shape-divider-top-1700040623 {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  overflow: hidden;
-  line-height: 0;
-}
-
-.custom-shape-divider-top-1700040623 svg {
-  position: relative;
-  display: block;
-  width: calc(166% + 1.3px);
-  height: 63px;
-  transform: rotateY(180deg);
-}
-
-.custom-shape-divider-top-1700040623 .shape-fill {
-  fill: #ffffff;
-}
-
-.custom-shape-divider-top-1700159661 {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  overflow: hidden;
-  line-height: 0;
-}
-
-.custom-shape-divider-top-1700159661 svg {
-  position: relative;
-  display: block;
-  width: calc(102% + 1.3px);
-  height: 49px;
-}
-
-.custom-shape-divider-top-1700159661 .shape-fill {
-  fill: #e2e2e2;
-}
-
-.custom-shape-divider-top-1700232691 {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  overflow: hidden;
-  line-height: 0;
-  transform: rotate(180deg);
-}
-
-.custom-shape-divider-top-1700232691 svg {
-  position: relative;
-  display: block;
-  width: calc(165% + 1.3px);
-  height: 32px;
-}
-
-.custom-shape-divider-top-1700232691 .shape-fill {
-  fill: #ffffff;
-}
-
-.animate-div {
-  animation: append-animate 0.3s linear;
-}
-.animate-div-height {
-  animation: append-animate-height 0.3s linear;
-}
-
-@keyframes append-animate {
-  from {
-    transform: scale(0);
-    opacity: 0;
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
-  to {
-    transform: scale(1);
-    opacity: 1;
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    animation-delay: 0s !important;
+    transition-duration: 0.01ms !important;
   }
-}
-@keyframes append-animate-height {
-  from {
-    height: 0xp;
-    transform: scale(0);
-    opacity: 0;
-  }
-  to {
-    height: auto;
-    transform: scale(1);
-    opacity: 1;
+
+  .landing-page-bio {
+    animation: none !important;
+    width: auto !important;
   }
 }

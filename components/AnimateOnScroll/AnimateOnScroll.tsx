@@ -1,74 +1,48 @@
+"use client";
 import { useEffect, useRef, useState } from "react";
 
 type Props = {
   children: React.ReactNode;
-  reappear?: boolean;
-  threshold?: number;
-  delay?: string;
+  /** Delay in milliseconds, to stagger neighbours. */
+  delay?: number;
+  className?: string;
 };
 
-type Options = {
-  threshold: number;
-  reappear?: boolean;
-};
-
-const useElementOnScreen = (
-  options: Options
-): [React.RefObject<HTMLDivElement>, boolean] => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [isVisible, setIsVisible] = useState<boolean>(false);
-
-  const makeAppear = (entries: any) => {
-    const [entry] = entries;
-    if (entry.isIntersecting) setIsVisible(true);
-  };
-
-  const makeAppearRepeating = (entries: any) => {
-    const [entry] = entries;
-    setIsVisible(entry.isIntersecting);
-  };
-
-  const callBack = options.reappear ? makeAppearRepeating : makeAppear;
+/** Fades and lifts its children into place once, the first time they scroll into view. */
+const AnimateOnScroll = ({ children, delay = 0, className = "" }: Props) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const containerRefCurrent = containerRef.current;
-    const observer = new IntersectionObserver(callBack, options);
-    if (containerRefCurrent) observer.observe(containerRefCurrent);
-
-    return () => {
-      if (containerRefCurrent) {
-        observer.unobserve(containerRefCurrent);
-      }
-    };
-  }, [containerRef, options, callBack]);
-
-  return [containerRef, isVisible];
-};
-
-const AnimateOnScroll = ({
-  children,
-  reappear,
-  threshold = 0.5,
-  delay,
-}: Props) => {
-  const [containerRef, isVisible] = useElementOnScreen({
-    threshold: threshold,
-    reappear: reappear,
-  });
+    const element = ref.current;
+    if (!element) return;
+    if (typeof IntersectionObserver === "undefined") {
+      setVisible(true);
+      return;
+    }
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.15 }
+    );
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <>
-      <div
-        ref={containerRef}
-        className={`transition duration-1000 ${delay} ${
-          isVisible
-            ? "opacity-100 blur-none translate-x-0"
-            : "opacity-0 blur-lg -translate-x-20"
-        }  motion-reduce:transition-none motion-reduce:hover:transform-none`}
-      >
-        {children}
-      </div>
-    </>
+    <div
+      ref={ref}
+      style={{ transitionDelay: visible ? `${delay}ms` : "0ms" }}
+      className={`transition duration-700 ease-out motion-reduce:translate-y-0 motion-reduce:opacity-100 motion-reduce:transition-none ${
+        visible ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0"
+      } ${className}`}
+    >
+      {children}
+    </div>
   );
 };
 
