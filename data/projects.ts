@@ -64,8 +64,9 @@ export const PROJECTS: Project[] = [
     description:
       "Later looks like a normal to-do app, but pressing Start on a task always finds a \"better time\" to begin and gives you a reason why. Every task has a panic bar and a mood, from \"Relax\" to \"Why are you still on this app?\". When a deadline is less than an hour away, delaying is refused and the row turns red. It also generates excuses and suggests productive procrastination. Tasks save automatically between sessions. It comes as a desktop window built with tkinter and as a terminal menu, both sharing the same task logic.",
     note: "Needs Python 3.9 or newer. Run py gui.py for the window or py later.py for the terminal version. A standalone Windows app can be built with PyInstaller.",
-    image: Later,
-    imageFit: "contain",
+    // image: Later,
+    // imageFit: "contain",
+    monogram: "L",
     tech: ["python", "tkinter"],
     categories: ["Desktop"],
     repo: "https://github.com/joeljosjoseph/Later",
