@@ -38,13 +38,17 @@ const ProjectDialog = ({ project, onClose }: Props) => {
     >
       <div className="relative">
         {project.image ? (
-          <div className="relative aspect-[16/9] w-full">
+          <div className="relative aspect-[16/9] w-full bg-fog">
             <Image
               src={project.image}
               alt={`Preview of ${project.title}`}
               fill
               sizes="(min-width: 640px) 640px, 92vw"
-              className="object-cover"
+              className={
+                project.imageFit === "contain"
+                  ? "object-contain"
+                  : "object-cover"
+              }
             />
           </div>
         ) : (

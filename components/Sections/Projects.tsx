@@ -6,7 +6,14 @@ import ProjectDialog from "../Projects/ProjectDialog";
 import ProjectRow from "../Projects/ProjectRow";
 import SectionTitle from "../SectionTitle/SectionTitle";
 
-const FILTERS = ["All", "Full Stack", "AI", "Front-End", "Web3"] as const;
+const FILTERS = [
+  "All",
+  "Full Stack",
+  "AI",
+  "Front-End",
+  "Desktop",
+  "Web3",
+] as const;
 type Filter = (typeof FILTERS)[number];
 
 const Projects = () => {
@@ -30,7 +37,8 @@ const Projects = () => {
           <FilterBar filters={FILTERS} active={filter} onChange={setFilter} />
         </div>
         <p role="status" className="sr-only">
-          Showing {visible.length} {visible.length === 1 ? "project" : "projects"}
+          Showing {visible.length}{" "}
+          {visible.length === 1 ? "project" : "projects"}
         </p>
         <ul key={filter} className="mt-10 animate-fade-in">
           {visible.map((project) => (
