@@ -1,65 +1,86 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
-const TITLES = ["FRONT-END DEVELOPER", "REACT DEVELOPER", "WEB DEVELOPER"];
+const ROLES = [
+  "front-end developer",
+  "full-stack developer",
+  "Next.js developer",
+  "developer exploring AI agents",
+];
 
-type Props = {};
+const HomeSection = () => {
+  const [roleIndex, setRoleIndex] = useState(0);
+  const roleRef = useRef<HTMLSpanElement>(null);
 
-const HomeSection = (props: Props) => {
-  const [bioText, setBioText] = useState(0);
-
+  // The CSS animation types the role in and out; swap the text each time it has fully gone.
   useEffect(() => {
-    const bioElement = document.getElementById("bio-text");
+    const element = roleRef.current;
+    if (!element) return;
+    const showNextRole = () =>
+      setRoleIndex((current) => (current + 1) % ROLES.length);
+    element.addEventListener("animationiteration", showNextRole);
+    return () =>
+      element.removeEventListener("animationiteration", showNextRole);
+  }, []);
 
-    if (bioElement) {
-      const handleAnimationIteration = () => {
-        setBioText((prevBioText) => (prevBioText + 1) % 3);
-      };
-
-      bioElement.addEventListener(
-        "animationiteration",
-        handleAnimationIteration
-      );
-
-      return () => {
-        // Clean up the event listener on component unmount
-        bioElement.removeEventListener(
-          "animationiteration",
-          handleAnimationIteration
-        );
-      };
-    }
-  }, [setBioText]);
   return (
-    <section id="home" className="h-[120vh] min-h-[300px] relative">
-      <div className="absolute text-white top-[40%] left-[50%] translate-x-[-50%] translate-y-[-50%] flex flex-col gap-10 justify-center items-center px-4">
-        <div className="text-3xl lg:text-7xl font-bold whitespace-nowrap">
-          HELLO, I&apos;M JOEL
-        </div>
-        <div
-          className={`landing-page-bio-wrapper flex w-full justify-center text-lg lg:text-2xl`}
+    <section
+      id="home"
+      aria-labelledby="home-title"
+      className="dark-surface relative flex min-h-[100svh] items-center text-white"
+    >
+      <div className="page-width pt-20">
+        <h1
+          id="home-title"
+          className="font-display font-extrabold leading-[0.95] tracking-tighter [font-size:clamp(3.25rem,12vw,8.5rem)]"
         >
-          <span className="whitespace-nowrap">I am a&nbsp;</span>
-          <span
-            id="bio-text"
-            className="border-r-[2px] border-white/70 landing-page-bio whitespace-nowrap font-medium"
-          >
-            {TITLES[bioText]}&nbsp;
+          <span className="block overflow-hidden pb-[0.08em]">
+            <span className="hero-line" style={{ ["--d" as string]: "0ms" }}>
+              Joel Jos
+            </span>
           </span>
-        </div>
-      </div>
-      <div className="custom-shape-divider-bottom-1700029275">
-        <svg
-          data-name="Layer 1"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 1200 120"
-          preserveAspectRatio="none"
+          <span className="block overflow-hidden pb-[0.08em]">
+            <span className="hero-line" style={{ ["--d" as string]: "120ms" }}>
+              Joseph.
+            </span>
+          </span>
+        </h1>
+
+        <p
+          className="hero-fade mt-8 flex text-lg sm:text-2xl"
+          style={{ ["--d" as string]: "700ms" }}
         >
-          <path
-            d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
-            className="shape-fill"
-          ></path>
-        </svg>
+          <span className="sr-only">
+            I&apos;m a front-end and full-stack developer.
+          </span>
+          <span aria-hidden="true" className="flex">
+            <span className="whitespace-nowrap">I&apos;m a&nbsp;</span>
+            <span
+              ref={roleRef}
+              className="landing-page-bio whitespace-nowrap border-r-2 border-white/70 font-medium"
+            >
+              {ROLES[roleIndex]}&nbsp;
+            </span>
+          </span>
+        </p>
+
+        <div
+          className="hero-fade mt-12 flex flex-wrap gap-4"
+          style={{ ["--d" as string]: "900ms" }}
+        >
+          <a
+            href="#projects"
+            className="bg-white px-6 py-3 font-medium text-black transition-colors hover:bg-accent-soft"
+          >
+            View projects
+          </a>
+          <a
+            href="#contact"
+            className="border border-white/60 px-6 py-3 transition-colors hover:bg-white hover:text-black"
+          >
+            Contact me
+          </a>
+        </div>
       </div>
     </section>
   );

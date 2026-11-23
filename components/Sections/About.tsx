@@ -1,61 +1,58 @@
 import React from "react";
-import AnimateOnScroll from "../AnimateOnScroll/AnimateOnScroll";
 import Image from "next/image";
 import Profile from "@/public/images/Profile.jpg";
-import { PDF_DOWNLOAD } from "@/public/constants/constants";
+import { PDF_DOWNLOAD } from "@/lib/constants";
+import AnimateOnScroll from "../AnimateOnScroll/AnimateOnScroll";
+import SectionTitle from "../SectionTitle/SectionTitle";
 
-type Props = {};
-
-const About = (props: Props) => {
-  const handleDownload = async () => {
-    window.open(PDF_DOWNLOAD, "_blank");
-  };
-
+const About = () => {
   return (
     <section
       id="about"
-      className="min-h-[100vh] py-20 px-4 flex justify-center items-center relative bg-white mt-[-2px]"
+      aria-labelledby="about-title"
+      className="relative bg-white py-24 sm:py-32"
     >
-      <div className="max-w-[1000px] mx-auto my-auto flex gap-10">
-        <div className="flex flex-1 flex-wrap gap-10">
-          <AnimateOnScroll>
-            <div className="flex flex-col gap-6 sm:gap-10">
-              <p className="text-4xl">About me.</p>
-              <p className="text-sm sm:text-lg text-black/60 ">
-                I am a front-end developer, where my expertise lies in
-                technologies such as TypeScript, HTML, CSS, and Next.js.
-                <br />
-                <br /> I bring a wealth of experience in crafting dynamic and
-                responsive user interfaces. In addition to my proficiency in
-                traditional web development, I have a strong passion in Web3
-                development, leveraging Solidity for smart contract creation.
-                <br />
-                <br />{" "}
-                <span className="hidden lg:flex">
-                  I am open to exploring new challenges that allow me to apply
-                  my existing skills while continually expanding my expertise in
-                  TypeScript, HTML, CSS, Next.js, and Solidity.
-                </span>{" "}
-              </p>
-              <button
-                onClick={handleDownload}
-                className="w-fit px-5 py-3 hover:bg-black/80 focus:bg-black/80 hover:text-white focus:text-white mt-2 border-[1px] border-black/90 origin-right transition-all ease-linear duration-300"
-              >
-                Download CV
-              </button>
-            </div>
-          </AnimateOnScroll>
-        </div>
-        <div className="hidden md:flex flex-1 py-10 px-6">
-          {" "}
-          <AnimateOnScroll delay="delay-700">
+      <div className="page-width grid items-center gap-12 md:grid-cols-[1.3fr_1fr] md:gap-16">
+        <AnimateOnScroll>
+          <SectionTitle id="about-title">About me.</SectionTitle>
+          <div className="mt-8 flex max-w-[58ch] flex-col gap-5 text-base leading-relaxed text-black/70 sm:text-lg">
+            <p>
+              I&apos;m a front-end developer who works mostly in TypeScript,
+              React and Next.js, building responsive interfaces.
+            </p>
+            <p>
+              Lately I&apos;ve been going full stack. Hot Takes, a real-time
+              multiplayer game, runs on Node, Express and Socket.io, and I&apos;ve
+              built a chatbot on the OpenAI API. I&apos;m also learning how AI
+              agents use tools and retrieval (RAG).
+            </p>
+            <p>
+              I enjoy Web3 too, writing smart contracts in Solidity. I&apos;m
+              open to new challenges where I can use these skills and keep
+              expanding them.
+            </p>
+          </div>
+          <a
+            href={PDF_DOWNLOAD}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-10 inline-block bg-black px-6 py-3 text-white transition-colors hover:bg-accent"
+          >
+            Download CV
+          </a>
+        </AnimateOnScroll>
+
+        <AnimateOnScroll delay={150} className="order-first md:order-none">
+          <div className="relative mx-auto aspect-square w-full max-w-[260px] shadow-[14px_14px_0_0_#000] md:max-w-none">
             <Image
               src={Profile}
-              alt="profile-image"
-              className="h-[calc(100%-20px)] w-full object-cover object-left-top  shadow-[15px_15px_0px_0px_rgba(0,0,0,0.72)] "
+              alt="Portrait of Joel"
+              fill
+              sizes="(min-width: 768px) 400px, 260px"
+              className="object-cover object-left-top grayscale transition duration-500 hover:grayscale-0 motion-reduce:transition-none"
             />
-          </AnimateOnScroll>
-        </div>
+          </div>
+        </AnimateOnScroll>
       </div>
     </section>
   );
